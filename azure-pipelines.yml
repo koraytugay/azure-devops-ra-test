@@ -35,17 +35,13 @@ steps:
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
 
-# - task: SonatypeCliSetup@2
-#   inputs:
-#     cliVersion: 1.185.0-01
-
 - task: NexusIqPipelineTask@3
   env:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
   inputs:
     # nexusIqService: 'My-IQ'
     nexusIqService: 'int-test-sonatype'
-    applicationId: 'kt-azure-test-15'
+    applicationId: 'kt-azure-test-16'
     stage: 'Build'
     # scanTargets: '*.jar'
     scanTargets: '**/kt-js-reachable/**, *.jar'
