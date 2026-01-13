@@ -18,25 +18,15 @@ steps:
 - checkout: self
   persistCredentials: true
 
-#- task: JavaToolInstaller@0
-#  inputs:
-#    versionSpec: '17'
-#    jdkArchitectureOption: 'x64'
-#    jdkSourceOption: 'PreInstalled'
-
 - task: NexusIqPipelineTask@3
   env:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
   inputs:
     acceptIqServerSelfSignedCertificates: true
     nexusIqService: 'int-test-sonatype'
-    applicationId: 'kt-azure-test-18'
+    applicationId: 'kt-azure-test-19'
     stage: 'Build'
     scanTargets: '**/kt-js-reachable/**'
     enableReachabilityJs: true
     reachabilityJsSources: '*app*.js'
     reachabilityJsProjectRoot: '$(Build.SourcesDirectory)/kt-js-reachable'
-    ignoreReachabilityErrors: true
-
-- script: sleep 60
-  displayName: 'Sleep for 60 seconds'
